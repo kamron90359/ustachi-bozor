@@ -1,0 +1,112 @@
+/* tokens.css — design tokens (colors, spacing, typography, shadows) as CSS custom properties on :root */
+@layer theme {
+  :root, :host {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+    --color-black: #000;
+    --color-white: #fff;
+    --spacing: .25rem;
+    --container-sm: 24rem;
+    --container-md: 28rem;
+    --container-lg: 32rem;
+    --container-xl: 36rem;
+    --container-2xl: 42rem;
+    --container-3xl: 48rem;
+    --text-xs: .75rem;
+    --text-xs--line-height: calc(1 / .75);
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-7xl: 4.5rem;
+    --text-7xl--line-height: 1;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --tracking-tight: -.025em;
+    --leading-tight: 1.25;
+    --leading-relaxed: 1.625;
+    --radius-sm: .25rem;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
+    --radius-xl: .75rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --animate-spin: spin 1s linear infinite;
+    --animate-pulse: pulse 2s cubic-bezier(.4, 0, .6, 1) infinite;
+    --blur-2xl: 40px;
+    --default-transition-duration: .15s;
+    --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --color-primary: #155eef;
+    --color-primary-dark: #0b4fd1;
+    --color-primary-light: #eff4ff;
+    --color-navy: #071a3d;
+    --color-bg: #f7f9fc;
+    --color-border: #e5eaf2;
+    --color-muted: #667085;
+    --color-success: #12b76a;
+    --color-success-light: #ecfdf3;
+    --color-warning: #f79009;
+    --color-warning-light: #fffaeb;
+    --color-error: #f04438;
+    --color-error-light: #fef3f2;
+    --shadow-card: 0 1px 2px #1018280a, 0 1px 3px #1018280f;
+    --shadow-card-lg: 0 4px 8px -2px #1018280f, 0 2px 4px -2px #1018280a;
+  }
+}
+
+/* Minimal dark theme overrides. Adds a .dark class on the <html> element to switch vars. */
+@layer theme {
+  .dark {
+    --color-bg: #0b1220; /* page background */
+    --color-navy: #e6eef9; /* primary text on dark */
+    --color-white: #0b1220; /* surfaces that used var(--color-white) */
+    --color-black: #eef4ff; /* not used directly but kept */
+    --color-border: #1f2937;
+    --color-muted: #9aa4b2;
+    --color-primary: #7FB1FF;
+    --color-primary-dark: #5d93e6;
+    --color-primary-light: #0f203a10;
+  }
+
+  /* Make components using the utility .bg-white adapt in dark mode where possible. */
+  .dark .bg-white {
+    background-color: var(--color-white) !important;
+  }
+
+  /* Slightly adjust dropdown shadows for dark mode */
+  .dark .shadow-lg {
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6) !important;
+  }
+
+  /* Theme transition class: applied briefly during theme toggles to animate colors/backgrounds */
+  .theme-transition, .theme-transition * {
+    transition-property: background-color, color, border-color, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: var(--default-transition-timing-function);
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .theme-transition, .theme-transition * {
+      transition: none !important;
+    }
+  }
+}
+

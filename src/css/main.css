@@ -1,0 +1,10 @@
+/* main.css — single entry point that assembles the site's stylesheet from
+   the files in this folder, in the order the cascade expects. Import this
+   file once (see src/main.tsx) instead of importing the individual files
+   directly. */
+
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./reset.css";
+@import "./utilities.css";
+@import "./custom.css";

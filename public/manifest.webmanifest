@@ -1,0 +1,14 @@
+{
+  "name": "USTACHI.UZ — Usta topish platformasi",
+  "short_name": "USTACHI.UZ",
+  "description": "O'zbekistonning eng yirik usta topish va xizmat buyurtma qilish platformasi.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F9FC",
+  "theme_color": "#155EEF",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
